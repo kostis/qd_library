@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.3)
 project(QDLibrary VERSION 0.1)
 
-set(DEFAULT_C_FLAGS "-std=c11 -pthread -Wall -Wextra -Werror")
-set(DEFAULT_CXX_FLAGS "-std=c++11 -pthread -Wall -Wextra -Wno-unused-private-field -Werror")
+set(DEFAULT_C_FLAGS "-std=c11 -pthread -Wall -Wextra")
+set(DEFAULT_CXX_FLAGS "-std=c++11 -pthread -Wall -Wextra -Wno-unused-private-field")
 set(DEFAULT_LINK_FLAGS "")
 
 option(QD_DEBUG
@@ -10,7 +10,7 @@ option(QD_DEBUG
 if(QD_DEBUG)
 	set(DEFAULT_C_FLAGS "${DEFAULT_C_FLAGS} -O0 -g")
 	set(DEFAULT_CXX_FLAGS
-		"${DEFAULT_CXX_FLAGS} -O0 -g -Wno-unused-private-field -fsanitize=undefined -fsanitize=address")
+		"${DEFAULT_CXX_FLAGS} -O0 -g -fsanitize=undefined -fsanitize=address")
 	set(DEFAULT_LINK_FLAGS "${DEFAULT_LINK_FLAGS} -g")
 else(QD_DEBUG)
 	set(DEFAULT_C_FLAGS "${DEFAULT_C_FLAGS} -O3")
